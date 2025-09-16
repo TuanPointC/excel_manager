@@ -14,7 +14,6 @@ body, html {
 }
 
 .app {
-  max-width: 1400px;
   margin: 0 auto;
   padding: 15px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
@@ -25,20 +24,12 @@ body, html {
 
 /* Minimal Header */
 .app-header-minimal {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border-radius: 15px;
-  padding: 20px 25px;
   margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-wrap: wrap;
   gap: 15px;
-  width: 80vw;
-  max-width: 1200px;
   margin: 0 auto 20px auto;
 }
 
@@ -56,7 +47,7 @@ body, html {
   font-weight: 600;
   background: rgba(255, 255, 255, 0.1);
   padding: 8px 15px;
-  border-radius: 20px;
+  border-radius: 10px;
   backdrop-filter: blur(10px);
 }
 
@@ -69,7 +60,7 @@ body, html {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  width: 80vw;
+  width: 90vw;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -78,26 +69,14 @@ body, html {
 section {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 30px;
+  border-radius: 10px;
+  padding: 15px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   width: 100%;
 }
 
-section:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-section h2 {
-  margin-bottom: 30px;
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
 
 .error-message {
   background: linear-gradient(135deg, #fed7d7, #feb2b2);
@@ -137,16 +116,18 @@ section h2 {
 
 /* File Upload Styles - Minimal */
 .file-upload {
+  cursor: pointer;
   margin: 0;
   padding: 0;
+  outline: none;
 }
 
 .upload-btn {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   color: white;
   border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
+  padding: 10px 24px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -181,7 +162,7 @@ section h2 {
   padding: 25px;
   background: linear-gradient(135deg, #d4edda, #c3e6cb);
   border: 1px solid #9ae6b4;
-  border-radius: 15px;
+  border-radius: 10px;
   box-shadow: 0 10px 25px rgba(154, 230, 180, 0.2);
 }
 
@@ -211,14 +192,13 @@ section h2 {
 
 .search-input-container {
   position: relative;
-  margin-bottom: 25px;
 }
 
 .search-input {
   width: 100%;
   padding: 20px 100px 20px 25px;
   border: 2px solid #e2e8f0;
-  border-radius: 25px;
+  border-radius: 10px;
   font-size: 1.1rem;
   transition: all 0.3s ease;
   box-sizing: border-box;
@@ -241,8 +221,8 @@ section h2 {
   background: rgba(239, 68, 68, 0.1);
   border: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   font-size: 1rem;
   color: #ef4444;
   cursor: pointer;
@@ -267,24 +247,40 @@ section h2 {
 }
 
 .search-results {
+  margin-top: 20px;
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid #e2e8f0;
-  border-radius: 15px;
-  height: 250px;
+  height: 500px;
   overflow-y: auto;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  width: 100%;
-}
+  scrollbar-width: thin;
+  scrollbar-color: #667eea #e2e8f0;
+  overflow-x: hidden;
+  position: relative;
+  clip-path: inset(0 round 10px);
+  }
+
+  .search-results::-webkit-scrollbar {
+    width: 6px;
+    background: #e2e8f0;
+    border-radius: 10px;
+  }
+
+  .search-results::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+  }
 
 .results-header {
-  padding: 20px 25px;
-  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  padding: 10px 25px;
   border-bottom: 1px solid #e2e8f0;
   font-weight: 600;
   color: #4a5568;
   font-size: 1.1rem;
-  border-radius: 15px 15px 0 0;
+  position: sticky;
+  top: 0;
+  right: 0;
+  background-color: wheat;
+  z-index: 10;
 }
 
 .no-results {
@@ -346,6 +342,11 @@ section h2 {
   color: #718096;
   font-size: 0.95rem;
   line-height: 1.5;
+  font-size: 18px;
+}
+
+.person-details span{
+  margin-right: 20px;
 }
 
 .sheet-name {
@@ -358,7 +359,7 @@ section h2 {
   color: white;
   border: none;
   padding: 12px 20px;
-  border-radius: 25px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
   font-size: 0.95rem;
@@ -377,7 +378,7 @@ section h2 {
   margin-top: 0;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 30px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -409,7 +410,7 @@ section h2 {
   color: white;
   border: none;
   padding: 15px 30px;
-  border-radius: 25px;
+  border-radius: 10px;
   font-size: 1.1rem;
   cursor: pointer;
   font-weight: 700;
@@ -458,17 +459,25 @@ section h2 {
   padding: 50px 30px;
   color: #718096;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
+  border-radius: 10px;
   border: 2px dashed rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
 }
 
 .table-container {
-  overflow-x: auto;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.2);
+  overflow-y: auto;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: white;
+  overflow-x: hidden;
+  max-height: 700px;
+  scrollbar-width: thin;
+  scrollbar-color: #667eea #e2e8f0;
+  position: relative;
+  clip-path: inset(0 round 10px);
 }
+
+
 
 .people-data-table {
   width: 100%;
@@ -477,7 +486,8 @@ section h2 {
 }
 
 .people-data-table th {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+  background-color: wheat;
+  /* background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2)); */
   color: #2d3748;
   font-weight: 700;
   padding: 18px 25px;
@@ -487,6 +497,10 @@ section h2 {
   text-transform: uppercase;
   letter-spacing: 0.8px;
   backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  right: 0;
 }
 
 .people-data-table td {
@@ -564,10 +578,15 @@ section h2 {
   border: none;
   cursor: pointer;
   padding: 10px 15px;
-  border-radius: 20px;
+  border-radius: 100%;
   transition: all 0.3s ease;
-  font-size: 1rem;
+  font-size: 10px;
   font-weight: 600;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 6px 15px rgba(252, 129, 129, 0.3);
 }
 

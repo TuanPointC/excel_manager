@@ -17,7 +17,7 @@ function App() {
   const handleFileImport = (sheets: ExcelSheet[]) => {
     setImportedSheets(sheets);
     setError('');
-    
+
     const totalPeople = sheets.reduce((sum, sheet) => sum + sheet.people.length, 0);
     console.log(`Successfully imported ${sheets.length} sheet(s) with ${totalPeople} people total`);
   };
@@ -29,7 +29,7 @@ function App() {
   const handlePersonSelect = (person: Person) => {
     // Check if person is already selected
     const isAlreadySelected = selectedPeople.some(p => p.id === person.id);
-    
+
     if (!isAlreadySelected) {
       setSelectedPeople(prev => [...prev, person]);
     }
@@ -50,14 +50,12 @@ function App() {
   return (
     <div className="app">
       <header className="app-header-minimal">
-        <h1>📊 Excel Manager</h1>
-        <FileUpload onFileImport={handleFileImport} onError={handleError} />
-        
         {importedSheets.length > 0 && (
           <div className="import-summary-minimal">
             ✅ {importedSheets.reduce((sum, sheet) => sum + sheet.people.length, 0)} người từ {importedSheets.length} sheet
           </div>
         )}
+        <FileUpload onFileImport={handleFileImport} onError={handleError} />
       </header>
 
       <main className="app-main">
@@ -70,15 +68,14 @@ function App() {
 
         {allPeople.length > 0 && (
           <section className="search-section">
-            <h2>🔍 Tìm kiếm và chọn người</h2>
-            <SearchComponent 
-              allPeople={allPeople} 
-              onPersonSelect={handlePersonSelect} 
+            <SearchComponent
+              allPeople={allPeople}
+              onPersonSelect={handlePersonSelect}
             />
           </section>
         )}
 
-        <PeopleTable 
+        <PeopleTable
           selectedPeople={selectedPeople}
           onRemovePerson={handleRemovePerson}
           onExport={handleExport}

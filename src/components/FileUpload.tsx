@@ -50,7 +50,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileImport, onError }) => {
         onClick={handleUploadClick}
         className="upload-btn"
       >
-        📁 Nhập file Excel
+        Nhập file Excel
       </button>
     </div>
   );
