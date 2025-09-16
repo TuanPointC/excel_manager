@@ -617,3 +617,7 @@ section h2 {
     padding: 10px 12px;
   }
 }
+
+input{
+  color: black!important;
+}
